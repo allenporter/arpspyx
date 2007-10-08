@@ -1,0 +1,16 @@
+9/25/2005 - v1.2
+ * Added patches from Michel Boudinot to clean up warnings and properly use
+   selected network device while scanning.
+
+9/6/2004 - v1.1
+ * Added support for an active scanning method that sends arp who-has.
+   requests to every IP address on the network of the specified device.
+ * Now supports ability to sort the list box by IP or MAC address.
+ * Dynamically determines the available network adapters (No longer hard
+   coded based on common device names).
+ * Ability to Export IP and MAC address list to a Text File.
+ * Defaults to the first usable network adapter with an IP Address instead
+   of defaulting to en0. 
+
+9/2/2004 - v1.0 - Initial Release
+ * Supports passive scanning

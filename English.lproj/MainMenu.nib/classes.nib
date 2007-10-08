@@ -1,0 +1,42 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                deviceSelected = id; 
+                menuExport = id; 
+                pressButtonClear = id; 
+                pressButtonScan = id; 
+            }; 
+            CLASS = ArpController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                buttonClear = NSButton; 
+                buttonScan = NSButton; 
+                devices = NSPopUpButton; 
+                netInfo = NetworkInfo; 
+                progress = NSProgressIndicator; 
+                scanLabel = NSTextField; 
+                table = NSTableView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = ArpSniffer; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = DeviceInfo; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {pressCancel = id; }; 
+            CLASS = NetworkInfo; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                buttonCancel = NSButton; 
+                currentIP = NSTextField; 
+                netmask = NSTextField; 
+                network = NSTextField; 
+                progressBar = NSProgressIndicator; 
+                scanPanel = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
