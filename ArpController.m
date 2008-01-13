@@ -263,8 +263,38 @@ int sortDictArray(id dict1, id dict2, void *context)
 - (IBAction) pressButtonScan:(id)sender
 {
 	DeviceInfo * deviceInfo = [deviceList objectAtIndex:[devices indexOfSelectedItem]];
-	[netInfo sendArpScan:deviceInfo];
-	
+	@try
+	{
+		[netInfo sendArpScan:deviceInfo];
+	}
+	@catch (NSException * ex)
+	{
+		NSAlert * alert;
+		NSRange permissionRange = [[ex reason] rangeOfString:@"Permission"];
+		if (permissionRange.length > 0)
+		{
+			alert = [NSAlert alertWithMessageText:[ex reason]
+									defaultButton:@"OK"
+								  alternateButton:@"Try Again"
+									  otherButton:nil
+						informativeTextWithFormat:@"In order to use this application you must "
+									"issue the following command at a terminal prompt:\n\n"
+									"sudo chmod 777 /dev/bpf*"];
+		}
+		else
+		{
+			alert = [NSAlert alertWithMessageText:@"Error opening network device"
+										  defaultButton:@"OK"
+										alternateButton:@"Try Again"
+											otherButton:nil
+							  informativeTextWithFormat:[ex reason]];
+		}
+		// should we try again?
+		if ([alert runModal] != NSOKButton) {
+			[self pressButtonScan:self];
+			return;
+	    }
+	}
 	[table reloadData];
 	
 	return;

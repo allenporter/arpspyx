@@ -148,52 +148,59 @@ bpf_init(int fd, DeviceInfo* deviceInfo)
 	memcpy(payload->ar_tha, empty_ha, ETHER_ADDR_LEN);
 	
 	// initlize bpf sdevice
-	fd = bpf_open();
-	bpf_init(fd, deviceInfo);
-	
-	for (i = 0; i <= 255-mask[0]; i++)
+	@try
 	{
-		tpa[0] = net[0] + i;
-		for (j = 0; j <= 255-mask[1]; j++)
+		fd = bpf_open();
+		bpf_init(fd, deviceInfo);
+	
+		for (i = 0; i <= 255-mask[0]; i++)
 		{
-			tpa[1] = net[1] + j;
-			for (k = 0; k <= 255-mask[2]; k++)
+			tpa[0] = net[0] + i;
+			for (j = 0; j <= 255-mask[1]; j++)
 			{
-				tpa[2] = net[2] + k;
-				for (l = 0; l <= 255-mask[3]; l++)
+				tpa[1] = net[1] + j;
+				for (k = 0; k <= 255-mask[2]; k++)
 				{
-					if (!scanning)
-						goto SCAN_DONE;
+					tpa[2] = net[2] + k;
+					for (l = 0; l <= 255-mask[3]; l++)
+					{
+						if (!scanning)
+							goto SCAN_DONE;
 					
-					// set the protocol address
-					tpa[3] = net[3] + l;
-					memcpy(payload->ar_tpa, tpa, 4);
+						// set the protocol address
+						tpa[3] = net[3] + l;
+						memcpy(payload->ar_tpa, tpa, 4);
 
-					// update dialog box
-					[currentIP setTitleWithMnemonic:[[NSString alloc]
+						// update dialog box
+						[currentIP setTitleWithMnemonic:[[NSString alloc]
 										initWithCString:inet_ntoa(*(struct in_addr *)tpa)]];
 
-					// write the packet!
-					c = write(fd, packet, packet_len);
-					if (c != packet_len)
-					{
-						fprintf(stderr, "%s(): %d bytes written (%s)\n",
-								__func__, c, strerror(errno));
-					}
+						// write the packet!
+						c = write(fd, packet, packet_len);
+						if (c != packet_len)
+						{
+							fprintf(stderr, "%s(): %d bytes written (%s)\n",
+									__func__, c, strerror(errno));
+						}
 					
-					// let dialog events run
-					[NSApp runModalSession:session];
-					usleep(100000);
+						// let dialog events run
+						[NSApp runModalSession:session];
+						usleep(100000);
+					}
 				}
 			}
 		}
-	}
 SCAN_DONE:
-	close(fd);
-	scanning = false;
+		;
+	}
+	@finally
+	{
+		close(fd);
+		scanning = false;
 	
-	[NSApp endModalSession:session];
-	[scanPanel close];
+		[NSApp endModalSession:session];
+		[scanPanel close];
+	}
 }
 
 - (void) lookupNetworkDevice:(char *)device
