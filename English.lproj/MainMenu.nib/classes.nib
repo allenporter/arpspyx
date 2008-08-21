@@ -1,42 +1,91 @@
-{
-    IBClasses = (
-        {
-            ACTIONS = {
-                deviceSelected = id; 
-                menuExport = id; 
-                pressButtonClear = id; 
-                pressButtonScan = id; 
-            }; 
-            CLASS = ArpController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                buttonClear = NSButton; 
-                buttonScan = NSButton; 
-                devices = NSPopUpButton; 
-                netInfo = NetworkInfo; 
-                progress = NSProgressIndicator; 
-                scanLabel = NSTextField; 
-                table = NSTableView; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {CLASS = ArpSniffer; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = DeviceInfo; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            ACTIONS = {pressCancel = id; }; 
-            CLASS = NetworkInfo; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                buttonCancel = NSButton; 
-                currentIP = NSTextField; 
-                netmask = NSTextField; 
-                network = NSTextField; 
-                progressBar = NSProgressIndicator; 
-                scanPanel = NSWindow; 
-            }; 
-            SUPERCLASS = NSObject; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>deviceSelected</key>
+				<string>id</string>
+				<key>menuExport</key>
+				<string>id</string>
+				<key>pressButtonClear</key>
+				<string>id</string>
+				<key>pressButtonScan</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>ArpController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>buttonClear</key>
+				<string>NSButton</string>
+				<key>buttonScan</key>
+				<string>NSButton</string>
+				<key>devices</key>
+				<string>NSPopUpButton</string>
+				<key>netInfo</key>
+				<string>NetworkInfo</string>
+				<key>progress</key>
+				<string>NSProgressIndicator</string>
+				<key>scanLabel</key>
+				<string>NSTextField</string>
+				<key>table</key>
+				<string>NSTableView</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>ArpSniffer</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>pressCancel</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>NetworkInfo</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>buttonCancel</key>
+				<string>NSButton</string>
+				<key>currentIP</key>
+				<string>NSTextField</string>
+				<key>netmask</key>
+				<string>NSTextField</string>
+				<key>network</key>
+				<string>NSTextField</string>
+				<key>progressBar</key>
+				<string>NSProgressIndicator</string>
+				<key>scanPanel</key>
+				<string>NSWindow</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
