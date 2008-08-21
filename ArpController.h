@@ -1,6 +1,7 @@
 /* ArpController */
 
 #import <Cocoa/Cocoa.h>
+#import "MacVendor.h"
 
 @interface ArpController : NSObject
 {
@@ -13,6 +14,7 @@
 	ArpSniffer *arpSniffer;
 	IBOutlet NetworkInfo *netInfo;
 	IBOutlet NSTextField *scanLabel;
+	MacVendor *macvendor;
 }
 
 - (void)			arpReceived: (char *)ipAddress
