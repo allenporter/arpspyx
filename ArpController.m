@@ -304,8 +304,10 @@ int sortDictArray(id dict1, id dict2, void *context)
 // incoming arp request received
 - (void)arpReceived:(char *)ipAddress macAddress:(char *)macAddress;
 {
-	NSString * keys[2];
-	NSString * values[2];
+	macvendor = [[MacVendor alloc]init];
+	NSString * vendorName = [macvendor vendorForMAC:[NSString stringWithFormat:@"%s",macAddress]];
+	NSString * keys[3];
+	NSString * values[3];
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
 	keys[0] = @"IP Address";
@@ -314,8 +316,11 @@ int sortDictArray(id dict1, id dict2, void *context)
 	keys[1] = @"MAC Address";
 	values[1] = [NSString stringWithFormat:@"%s", macAddress];
 	
+	keys[2] = @"Vendor";
+	values[2] = vendorName;
+	
 	NSDictionary * entry = [NSDictionary dictionaryWithObjects:(id *)values
-													   forKeys:(id *)keys count:2];
+													   forKeys:(id *)keys count:3];
 
 	// iterate through the existing arp cache, look for duplicate entries
 	int i;
