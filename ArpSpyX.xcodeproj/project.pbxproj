@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27077EF50E5DE97700F01FA9 /* MacVendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27077EF40E5DE97700F01FA9 /* MacVendor.m */; };
+		27077EF70E5DEA5900F01FA9 /* macvendors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27077EF60E5DEA5900F01FA9 /* macvendors.plist */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -24,6 +26,9 @@
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		27077EF30E5DE97700F01FA9 /* MacVendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacVendor.h; sourceTree = "<group>"; };
+		27077EF40E5DE97700F01FA9 /* MacVendor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacVendor.m; sourceTree = "<group>"; };
+		27077EF60E5DEA5900F01FA9 /* macvendors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = macvendors.plist; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -63,6 +68,8 @@
 				9F208C2B06E3128B00F64081 /* ArpController.m */,
 				9F3E2EFF06EA64AE00EA94E7 /* NetworkInfo.h */,
 				9F3E2F0006EA64AF00EA94E7 /* NetworkInfo.m */,
+				27077EF30E5DE97700F01FA9 /* MacVendor.h */,
+				27077EF40E5DE97700F01FA9 /* MacVendor.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27077EF60E5DEA5900F01FA9 /* macvendors.plist */,
 				9FFC2B1E06E6B98700494141 /* Network.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -161,9 +169,11 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 9FC0EFED08E785E700ED1585 /* Build configuration list for PBXProject "ArpSpyX" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ArpSpyX */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* ArpSpyX */,
 			);
@@ -181,6 +191,7 @@
 				9F6B3BFC06E3BBC0006766D0 /* ArpSniffer.h in Resources */,
 				9FFC2B1F06E6B98700494141 /* Network.icns in Resources */,
 				9F3E2F0106EA64AF00EA94E7 /* NetworkInfo.h in Resources */,
+				27077EF70E5DEA5900F01FA9 /* macvendors.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +206,7 @@
 				9F208C2D06E3128B00F64081 /* ArpController.m in Sources */,
 				9F6B3BFD06E3BBC0006766D0 /* ArpSniffer.m in Sources */,
 				9F3E2F0206EA64AF00EA94E7 /* NetworkInfo.m in Sources */,
+				27077EF50E5DE97700F01FA9 /* MacVendor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +291,7 @@
 					ppc,
 					i386,
 				);
+				GCC_ENABLE_OBJC_GC = YES;
 			};
 			name = Development;
 		};
