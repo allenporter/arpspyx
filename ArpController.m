@@ -46,8 +46,8 @@ int sortDictArray(id dict1, id dict2, void *context)
 	NSDictionary * arpEntry2 = (NSDictionary *)dict2;
 	
 	if (!([columnName isEqualToString:@"IP Address"] ||
-		  [columnName isEqualToString:@"MAC Address"] ||//r10
-		  [columnName isEqualToString:@"Vendor"]))//
+		  [columnName isEqualToString:@"MAC Address"] ||
+		  [columnName isEqualToString:@"Vendor"]))
 		return NSOrderedSame;
 	
 	NSString * string1 = [arpEntry1 objectForKey:columnName];
@@ -67,7 +67,7 @@ int sortDictArray(id dict1, id dict2, void *context)
 		else
 			return [string2 compare:string1];
 	}
-	else if ([columnName isEqualToString:@"Vendor"])//r10
+	else if ([columnName isEqualToString:@"Vendor"])
 	{
 		if (upSort)
 			return [string1 compare:string2];
@@ -249,9 +249,9 @@ int sortDictArray(id dict1, id dict2, void *context)
 		NSDictionary * item = [arplist objectAtIndex:i];
 		NSString * ip = [item objectForKey:@"IP Address"];
 		NSString * mac = [item objectForKey:@"MAC Address"];
-		NSString * vendor = [item objectForKey:@"Vendor"];//r10
+		NSString * vendor = [item objectForKey:@"Vendor"];
 
-		fprintf(handle, "%s\t%s\t%s\n", [ip cString], [mac cString], [vendor cString]);//r10	}
+		fprintf(handle, "%s\t%s\t%s\n", [ip cString], [mac cString], [vendor cString]);	}
 	fclose(handle);
 }
 
